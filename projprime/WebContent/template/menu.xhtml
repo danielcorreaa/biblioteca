@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form>
+		<div align="center">
+			<h:graphicImage library="img" name="primefaces.png" />
+		</div>
+		<p:panelMenu>			
+			<p:submenu label="Home">
+				<p:menuitem value="Home" icon="ui-icon-home" outcome="index" />
+			</p:submenu>
+			<p:submenu label="Cadastro">
+				<p:menuitem value="Paciente" icon="ui-icon-person" outcome="paciente"/>
+			</p:submenu>
+			<p:submenu label="Movimentação">
+				<p:menuitem value="Agendar" icon="ui-icon-clock" outcome="agendar"/>
+			</p:submenu>
+		</p:panelMenu>
+	</h:form>
+
+</html>

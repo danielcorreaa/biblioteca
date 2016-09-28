@@ -1,0 +1,26 @@
+body{
+	font-size: 0.7em;	
+	font-family: sans-serif;
+	text-align: justify;
+}
+
+.painel99{
+	width: 99%;
+	margin: auto;
+}
+.painel70{
+	width: 70%;
+	margin: auto;
+}
+.painel60{
+	width: 60%;
+	margin: auto;
+}
+.espaco30{
+	height: 30px;
+}
+
+
+#menu{
+	
+}
