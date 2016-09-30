@@ -1,6 +1,7 @@
 package com.projprime.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.projprime.modelo.Paciente;
@@ -22,6 +23,15 @@ public class PacienteDAO {
 		paci1.setData(new Data(paci1.getData().stringforDate("17/11/1983")));
 		lista.add(paci1);
 		
+	}
+	
+	public Paciente getId(Integer id){
+		for(Paciente paciente:lista){
+			if(paciente.getId() == id){
+				return paciente;
+			}
+		}
+		return null;
 	}
 	
 	public void salvar(Paciente paciente){

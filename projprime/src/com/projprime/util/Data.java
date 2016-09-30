@@ -33,8 +33,7 @@ public class Data {
 			retorno = ano -1;
 		}else if(mes < 0){
 			retorno = ano -1;
-		}
-				
+		}				
 		return retorno;
 	}
 	
@@ -51,6 +50,22 @@ public class Data {
 		} catch (ParseException e) {
 			data = new Date();
 		}
+		return data;
+	}
+	
+	public Date objToDate(Object obj){
+		SimpleDateFormat sdf = new SimpleDateFormat(PATTERN);
+		String dataString = sdf.format(obj);
+		try {
+			data = sdf.parse(dataString);
+		} catch (ParseException e) {			
+			e.printStackTrace();
+		}
+		return data;
+	}
+	
+	public Date somarUmaHora(){		
+		data.setHours(1);
 		return data;
 	}
 
