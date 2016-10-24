@@ -1,50 +1,44 @@
 package com.projprime.dao;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import com.projprime.modelo.Paciente;
-import com.projprime.util.Data;
 
-public class PacienteDAO {
+@Stateless
+public class PacienteDAO {	
 	
-	private List<Paciente> lista = new ArrayList<Paciente>();
+	
+	@PersistenceContext
+	EntityManager entity;
 
-	public PacienteDAO() {
-		super();
-		getBanco();
+	
+	@PostConstruct
+	void contruindo(){
+		System.out.println("Construiu Dao");
 	}
 
-	private void getBanco() {
-		Paciente paci1 = new Paciente();
-		paci1.setId(3443);
-		paci1.setNome("Daniel Correa");
-		paci1.setData(new Data(paci1.getData().stringforDate("17/11/1983")));
-		lista.add(paci1);
-		
-	}
-	
 	public Paciente getId(Integer id){
-		for(Paciente paciente:lista){
-			if(paciente.getId() == id){
-				return paciente;
-			}
-		}
-		return null;
+		/*TypedQuery<Paciente> paciente = entity.createQuery("Select p from Paciente p where p.id = ?", Paciente.class);
+		paciente.setParameter("id", id);
+		return paciente.getSingleResult();*/
+		return entity.find(Paciente.class, id);
 	}
 	
 	public void salvar(Paciente paciente){
-		getLista().add(paciente);
+		entity.persist(paciente);
 	}
 
-	public List<Paciente> getLista() {
+	public List<Paciente> getLista() {	
+		List<Paciente> lista = entity.createQuery("select p from Paciente p",Paciente.class ).getResultList() ;
 		return lista;
 	}
 
-	public void setLista(List<Paciente> lista) {
-		this.lista = lista;
-	}
+	
 	
 	
 

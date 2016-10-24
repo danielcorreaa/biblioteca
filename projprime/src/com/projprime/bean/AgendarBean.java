@@ -49,6 +49,7 @@ public class AgendarBean implements Serializable {
 	// corrige bug primefaces
 	public void onDateSelect(SelectEvent selectEvent) {
 		event = new DefaultScheduleEvent("", (Date) selectEvent.getObject(), (Date) selectEvent.getObject(), true);
+		
 		Calendar c = Calendar.getInstance();
 		c.setTime(event.getStartDate());
 		c.add(Calendar.HOUR_OF_DAY, 1);
@@ -65,16 +66,8 @@ public class AgendarBean implements Serializable {
 		return sugestoes;
 	}
 	
-	public void salvar(ActionEvent Actionevent){
-		
-		if(event.getId() == null)
-            eventModel.addEvent(event);
-        else
-            eventModel.updateEvent(event);
-         
-        event = new DefaultScheduleEvent();
-		
-	   //eventModel.addEvent(new DefaultScheduleEvent(agendar.getPaciente().getNome(), agendar.getDataConsulta().getData(), agendar.getDataConsulta().getData()));
+	public void salvar(){
+		eventModel.addEvent(new DefaultScheduleEvent(agendar.getPaciente().getNome(), agendar.getDataConsulta().getData(), agendar.getDataConsulta().getData()));		
 	}
 
 	public ScheduleModel getEventModel() {

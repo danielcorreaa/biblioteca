@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<p:dialog widgetVar="eventDialog" header="Event Details"
+	showEffect="clip" hideEffect="clip">
+	
+		<h:panelGrid id="eventDetails" columns="2" cellpadding="10">
+
+			<p:outputLabel value="Paciente" for="paciente" />
+			<p:autoComplete id="paciente" value="#{agendarBean.agendar.paciente}"
+				size="50" completeMethod="#{agendarBean.buscarPacientes}" var="paci"
+				itemLabel="#{paci.nome}" itemValue="#{paci}" dropdown="true"
+				emptyMessage="Nenhum paciente encontrado" />
+
+			<p:outputLabel for="dataconsulta" value="Data Consulta" />
+			<p:inputText id="dataconsulta" required="true" disabled="true"
+				value="#{agendarBean.agendar.dataConsulta.data}">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</p:inputText>
+
+			<p:outputLabel />
+			<p:commandButton id="addButton" value="Save" update="@form"
+				actionListener="#{agendarBean.salvar}"
+				oncomplete="PF('myschedule').update();PF('eventDialog').hide();" />
+
+			<!-- <p:commandButton type="reset" value="Reset"  rendered="false"/>	 -->
+
+		</h:panelGrid>
+	
+</p:dialog>
+</html>

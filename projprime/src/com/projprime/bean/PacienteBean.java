@@ -1,41 +1,39 @@
 package com.projprime.bean;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
-import java.util.Random;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.enterprise.inject.Model;
+import javax.inject.Inject;
 
 import com.projprime.dao.PacienteDAO;
 import com.projprime.modelo.Paciente;
 
-@ManagedBean
-@ViewScoped
-public class PacienteBean {
+@Model
+public class PacienteBean implements Serializable {
 
-	private List<Paciente> pacientes = new ArrayList<Paciente>();
+	private static final long serialVersionUID = 1L;
+	
+	private List<Paciente> pacientes;
 	private Paciente pacienteSelecionado;
 	private Paciente paciente;
-	PacienteDAO dao;
+	
+	@Inject
+	private PacienteDAO dao;
+	
 	public PacienteBean() {
 		super();
 		inicializacao();
 	}
 
 	public void inicializacao() {
-		paciente = new Paciente();
-		dao = new PacienteDAO();
+		paciente = new Paciente();		
 		pacientes = dao.getLista();
 	}
 
-	public void salvar() {
-		//PacienteDAO dao = new PacienteDAO();
-		//paciente = new Paciente();
-		paciente.setId(new Random().nextInt(50));
+	public void salvar() {		
 		dao.salvar(paciente);
-		paciente = new Paciente();
-		pacientes = dao.getLista();
+		paciente = new Paciente();		
 	}
 
 	public List<Paciente> getPacientes() {
