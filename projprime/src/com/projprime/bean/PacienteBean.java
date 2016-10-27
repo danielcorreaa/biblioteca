@@ -1,8 +1,8 @@
 package com.projprime.bean;
 
-import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
@@ -10,9 +10,7 @@ import com.projprime.dao.PacienteDAO;
 import com.projprime.modelo.Paciente;
 
 @Model
-public class PacienteBean implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class PacienteBean{
 	
 	private List<Paciente> pacientes;
 	private Paciente pacienteSelecionado;
@@ -23,9 +21,11 @@ public class PacienteBean implements Serializable {
 	
 	public PacienteBean() {
 		super();
-		inicializacao();
+		
 	}
-
+	
+	
+	@PostConstruct
 	public void inicializacao() {
 		paciente = new Paciente();		
 		pacientes = dao.getLista();

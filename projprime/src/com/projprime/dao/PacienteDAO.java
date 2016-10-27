@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -32,7 +33,7 @@ public class PacienteDAO {
 	public void salvar(Paciente paciente){
 		entity.persist(paciente);
 	}
-
+	@Produces
 	public List<Paciente> getLista() {	
 		List<Paciente> lista = entity.createQuery("select p from Paciente p",Paciente.class ).getResultList() ;
 		return lista;
