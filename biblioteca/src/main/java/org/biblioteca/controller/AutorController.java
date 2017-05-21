@@ -42,7 +42,7 @@ public class AutorController {
 	public ModelAndView remover(Integer id){
 		ModelAndView mv = new ModelAndView("autores/lista");
 		String msg = dao.excluir(id);
-		System.out.println();
+		System.out.println(msg);
 		return mv;
 	}
 

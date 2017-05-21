@@ -1,36 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>       
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Lista Autores</title>
+	pageEncoding="ISO-8859-1"%>
+
+<%@ taglib tagdir="/WEB-INF/tags" prefix="tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <script type="text/javascript">
 	function excluir(id,a) {
-		if(confirm("Deseja excluir o autor"))
-		a.href = "autores/delete?id="+id;
+		if(confirm("Deseja excluir a categoria?"))
+		a.href = "categorias/delete?id="+id;
 	}
 </script>
-</head>
-<body>
 
-<h3>Lista Autores</h3>
-<table>
-	<tr>
-		<th>Código</th>
-		<th>Nome</th>
-		<th>Nacionalidade</th>
-	</tr>
-	<c:forEach var="autor" items="${autores}">	
+<tags:pageTemplate titulo="Categoria">
+	<div class="page-header">
+		<h1>
+			Lista Categorias <small></small>
+		</h1>
+	</div>
+	<table class="table table-striped">
 		<tr>
-			<td>${autor.codigo}</td>
-			<td>${autor.nome}</td>
-			<td>${autor.nacionalidade}</td>
-			<td>Alterar</td>
-			<td><a onclick="excluir(${autor.codigo}, this)">Delete</a></td>
+			<th>Código</th>
+			<th>Nome</th>
 		</tr>
-	</c:forEach>
-</table>
-</body>
-</html>
+		<c:forEach var="categoria" items="${categorias}">
+			<tr>
+				<td>${categoria.codigo}</td>
+				<td>${categoria.descricao}</td>
+				<td>Alterar</td>
+				<td><a><span class="glyphicon glyphicon-refresh"
+						aria-hidden="true"></span></a></td>
+				<td><a onclick="excluir(${categoria.codigo}, this)"><span
+						class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+			</tr>
+		</c:forEach>
+	</table>
+</tags:pageTemplate>

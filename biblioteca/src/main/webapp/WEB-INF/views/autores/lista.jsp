@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
+
 <%@ taglib tagdir="/WEB-INF/tags" prefix="tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <script type="text/javascript">
 	function excluir(id,a) {
-		if(confirm("Deseja excluir o autor"))
+		if(confirm("Deseja excluir o autor?"))
 		a.href = "autores/delete?id="+id;
 	}
 </script>
 
 <tags:pageTemplate titulo="Autor">
 	<div class="page-header">
-		<h1>Lista Autores <small></small></h1>
+		<h1>
+			Lista Autores <small></small>
+		</h1>
 	</div>
 	<table class="table table-striped">
 		<tr>
@@ -25,7 +27,8 @@
 			<tr>
 				<td>${autor.codigo}</td>
 				<td>${autor.nome}</td>
-				<td>${autor.nacionalidade}</td>				
+				<td>${autor.nacionalidade}</td>
+				<td>Alterar</td>
 				<td><a><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a></td>
 				<td><a onclick="excluir(${autor.codigo}, this)"><span 
 					class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>

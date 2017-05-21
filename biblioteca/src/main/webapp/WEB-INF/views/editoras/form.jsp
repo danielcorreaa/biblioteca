@@ -1,26 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Cadastro Autor</title>
-</head>
-<body>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="tags"%>
 
-	<form action="/biblioteca/autores" method="POST">
-		<div>
-			<label id="name">Nome:</label>
-			<input type="text" name="nome" id="name"/>
+<tags:pageTemplate titulo="Autor">
+	<div class="page-header">
+		<h1>Cadastro <small>de autor</small></h1>
+	</div>
+	<form action="/biblioteca/editoras" method="POST" class="form-horizontal">
+		<div class="form-group">
+			<label for="nome" class="col-sm-2 control-label">Nome:</label>
+			<div class="col-sm-10">
+				<input type="text" name="nome" id="name"  class="form-control"/>
+			</div>
 		</div>
-		<div>
-			<label id="label-1">Nacionalidade:</label>
-			<input type="text" name="nacionalidade" id="nacionalidade">
+		<div class="form-group">
+			<label for="nacionalidade" class="col-sm-2 control-label">Nacionalidade:</label>
+			<div class="col-sm-10">				
+				<input type="text" name="nacionalidade" id="nacionalidade" class="form-control">
+			</div>
 		</div>
-		<div>
-			<input type="submit" value="Salvar" id="salvar"/>
+		<div class="form-group">
+			<label for="endereco" class="col-sm-2 control-label">Endereco:</label>
+			<div class="col-sm-10">
+				<input type="text" name="endereco" id="endereco"  class="form-control"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="contato" class="col-sm-2 control-label">Contato:</label>
+			<div class="col-sm-10">
+				<input type="text" name="contato" id="contato"  class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<input type="submit" value="Salvar" id="salvar" class="btn btn-success"/>
+			</div>
 		</div>
 	</form>
-
-</body>
-</html>
+</tags:pageTemplate>

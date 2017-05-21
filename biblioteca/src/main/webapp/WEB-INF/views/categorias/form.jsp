@@ -1,26 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Cadastro Autor</title>
-</head>
-<body>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="tags"%>
 
-	<form action="/biblioteca/autores" method="POST">
-		<div>
-			<label id="name">Nome:</label>
-			<input type="text" name="nome" id="name"/>
-		</div>
-		<div>
-			<label id="label-1">Nacionalidade:</label>
-			<input type="text" name="nacionalidade" id="nacionalidade">
-		</div>
-		<div>
-			<input type="submit" value="Salvar" id="salvar"/>
+<tags:pageTemplate titulo="Autor">
+	<div class="page-header">
+		<h1>Cadastro <small>de categoria</small></h1>
+	</div>
+	<form action="/biblioteca/categorias" method="POST" class="form-horizontal">
+		<div class="form-group">			
+			<label for="descricao" class="col-sm-2 control-label">Descrição:</label>
+			<div class="col-sm-10">
+				<input type="text" name="descricao" id="descricao" class="form-control" />
+			</div>			
+		</div>		
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<input type="submit" value="Salvar" id="salvar" class="btn btn-success"/>
+			</div>
 		</div>
 	</form>
-
-</body>
-</html>
+</tags:pageTemplate>
