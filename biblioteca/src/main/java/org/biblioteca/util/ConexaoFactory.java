@@ -24,7 +24,7 @@ public class ConexaoFactory {
 		Connection conection = null;
 		String user = "root";
 		String password = "";
-		String url = "jdbc:mysql://localhost:3306/biblioteca";
+		String url = "jdbc:mysql://localhost:3306/locadora";
 		String drive = "com.mysql.jdbc.Driver";
 		try {
 			 Class.forName(drive);

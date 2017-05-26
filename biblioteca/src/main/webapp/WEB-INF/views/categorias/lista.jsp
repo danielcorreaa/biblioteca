@@ -34,4 +34,5 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<a href="categorias/form" class="button button-primary">Novo</a>
 </tags:pageTemplate>

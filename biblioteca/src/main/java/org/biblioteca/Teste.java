@@ -1,7 +1,6 @@
 package org.biblioteca;
 
 import org.biblioteca.dao.AutorDAO;
-import org.biblioteca.modelo.Autor;
 
 public class Teste {
 	

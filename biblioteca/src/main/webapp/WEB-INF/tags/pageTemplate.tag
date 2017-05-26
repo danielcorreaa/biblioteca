@@ -20,9 +20,9 @@
 		<div class="col-md-3">
 			<ul class="list-group">
 				<li class="list-group-item"><a href="/biblioteca/">Home</a></li>
-				<li class="list-group-item"><a href="autores/">Autor</a></li>
-				<li class="list-group-item"><a href="categorias/form">Categoria</a></li>
-				<li class="list-group-item"><a href="editoras/form">Editora</a></li>
+				<li class="list-group-item"><a href="autores">Autor</a></li>
+				<li class="list-group-item"><a href="categorias">Categoria</a></li>
+				<li class="list-group-item"><a href="editoras">Editora</a></li>
 			</ul>
 		</div>
 		<div class="col-md-9">
