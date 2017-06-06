@@ -119,5 +119,13 @@ public class Livro {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+	
+	public String getEditoraNome(){
+		return editora.getNome();
+	}
+	
+	public String getCategoriaDescricao(){
+		return categoria.getDescricao();
+	}
 
 }

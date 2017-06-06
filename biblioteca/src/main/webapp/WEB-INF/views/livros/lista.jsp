@@ -6,14 +6,14 @@
 
 <script type="text/javascript">
 	function excluir(id,a) {
-		if(confirm("Deseja excluir o autor?"))
-		a.href = "editoras/delete?id="+id;
+		if(confirm("Deseja excluir o livro?"))
+		a.href = "livros/delete?id="+id;
 	}
 </script>
 
-<tags:pageTemplate titulo="Editora">
+<tags:pageTemplate titulo="Livros">
 	<div class="page-header">
-		<h1>Lista Editoras <small></small></h1>
+		<h1>Lista Livros <small></small></h1>
 	</div>
 	<table class="table table-striped">
 		<tr>
@@ -23,18 +23,20 @@
 			<th>Endereço</th>
 			<th>Contato</th>
 		</tr>
-		<c:forEach var="editora" items="${editoras}">
+		<c:forEach var="livro" items="${livros}">
 			<tr>
-				<td>${editora.codigo}</td>
-				<td>${editora.nome}</td>
-				<td>${editora.nacionalidade}</td>
-				<td>${editora.endereco}</td>
-				<td>${editora.contato}</td>			
+				<td>${livro.codigo}</td>
+				<td>${livro.titulo}</td>
+				<td>${livro.tituloOriginal}</td>
+				<td>${livro.idiomaOriginal}</td>
+				<td>${livro.situacao}</td>
+				<td>${livro.editoraNome}</td>	
+				<td>${livro.categoriaDescricao}</td>				
 				<td><a><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a></td>
-				<td><a onclick="excluir(${editora.codigo}, this)"><span 
+				<td><a onclick="excluir(${livro.codigo}, this)"><span 
 					class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="editoras/form" class="button button-primary">Novo</a>
+	<a href="livros/form" class="button button-primary">Novo</a>
 </tags:pageTemplate>

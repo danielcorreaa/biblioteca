@@ -23,6 +23,7 @@
 				<li class="list-group-item"><a href="autores">Autor</a></li>
 				<li class="list-group-item"><a href="categorias">Categoria</a></li>
 				<li class="list-group-item"><a href="editoras">Editora</a></li>
+				<li class="list-group-item"><a href="livros">Livro</a></li>
 			</ul>
 		</div>
 		<div class="col-md-9">
